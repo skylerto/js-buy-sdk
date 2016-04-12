@@ -54,6 +54,7 @@ $(function() {
 
     closeCartHandler();
     overlayHandler();
+    keyPressHandler();
 
   });
 
@@ -182,6 +183,17 @@ $(function() {
   function overlayHandler() {
     $('.overlay').click(function () {
       closeCart();
+    });
+  }
+
+  /* Key Press Handler
+  ============================================================ */
+  function keyPressHandler() {
+    $(document).keydown(function(e){
+       var code = e.keyCode || e.which;
+       if (code === 27) {
+         closeCart();
+       }
     });
   }
 
