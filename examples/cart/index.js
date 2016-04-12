@@ -52,7 +52,8 @@ $(function() {
 
     attachCheckoutButtonListeners();
 
-    closeCart();
+    closeCartHandler();
+    overlayHandler();
 
   });
 
@@ -158,13 +159,29 @@ $(function() {
   ============================================================ */
   function openCart() {
     $('.cart').addClass('js-active');
+    $('.overlay').addClass('js-active');
   }
 
   /* Close Cart
   ============================================================ */
   function closeCart() {
+    $('.cart').removeClass('js-active');
+    $('.overlay').removeClass('js-active');
+  }
+
+  /* Close Cart Handler
+  ============================================================ */
+  function closeCartHandler() {
     $('.cart .btn--close').click(function () {
-      $('.cart').removeClass('js-active');
+      closeCart();
+    });
+  }
+
+  /* Overlay Handler
+  ============================================================ */
+  function overlayHandler() {
+    $('.overlay').click(function () {
+      closeCart();
     });
   }
 
